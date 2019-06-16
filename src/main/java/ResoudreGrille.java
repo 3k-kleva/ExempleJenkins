@@ -1,8 +1,12 @@
 /**
-* Permet de resoudre une grille de sudoku.
+* Permet de resoudre une grille de sudoku .
 */
 public class ResoudreGrille {
-  /** Point d'entrée du programe. */
+  /** Pour cacher le contructeur */
+  private ResoudreGrille() {}
+  /** Point d'entrée du programe. 
+   *  @param args
+   */
   public static void main(final String[] args) {
     //GrilleImpl lagrille = new GrilleImpl();
     GrilleImpl.displayGrille();
