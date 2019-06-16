@@ -1,8 +1,6 @@
 public class ResoudreGrille {
- 
-  public static void main(String[] Args) {
-	  GrilleImpl lagrille = new GrilleImpl();
-	  lagrille.displayGrille();
-	  
+  public static void main(final String[] Args) {
+    GrilleImpl lagrille = new GrilleImpl();
+    lagrille.displayGrille();
   }
 }
