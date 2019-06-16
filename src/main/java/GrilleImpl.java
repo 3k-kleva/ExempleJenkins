@@ -181,12 +181,12 @@ public class GrilleImpl implements Grille {
       }
   }
   /**
-  * La méthode affiche la grille   
+  * La méthode affiche la grille .
   */
   public static void displayGrille() {
-    for (int l=0; l<9; l++) {
-      for (int c=0; c<9; c++) {
-        System.out.print(grille[l][c]+" ");
+    for (int l = 0; l < NEUF; l++) {
+      for (int c = 0; c < NEUF; c++) {
+        System.out.print(grille[l][c] + " ");
       }
       System.out.println("                  ");
     }

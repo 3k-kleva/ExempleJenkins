@@ -1,6 +1,10 @@
+/**
+* Permet de resoudre une grille de sudoku.
+*/
 public class ResoudreGrille {
-  public static void main(final String[] Args) {
-    GrilleImpl lagrille = new GrilleImpl();
-    lagrille.displayGrille();
+  /** Point d'entrée du programe. */
+  public static void main(final String[] args) {
+    //GrilleImpl lagrille = new GrilleImpl();
+    GrilleImpl.displayGrille();
   }
 }
