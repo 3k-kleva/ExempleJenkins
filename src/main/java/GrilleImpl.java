@@ -43,7 +43,7 @@ public class GrilleImpl implements Grille {
    * @param value       valeur à rechercher dans la grille
    * @return vrai si la valeur est presente sinon faux
    */
-  public static boolean checkColumn(final int y, final char value) {
+  public boolean checkColumn(final int y, final char value) {
     for (int x = 0; x < NEUF; x++) {
       if (this.grille[x][y] == value) {
         return true;
@@ -57,7 +57,7 @@ public class GrilleImpl implements Grille {
    * @param value       valeur à rechercher dans la grille
    * @return vrai si la valeur est presente sinon faux
    */
-  public static boolean checkLine(final int x, final char value) {
+  public boolean checkLine(final int x, final char value) {
     for (int y = 0; y < NEUF; y++) {
       if (this.grille[x][y] == value) {
         return true;
@@ -72,7 +72,7 @@ public class GrilleImpl implements Grille {
    * @param value       valeur à rechercher dans la grille
    * @return vrai si la valeur est presente sinon faux
    */
-  public static boolean
+  public boolean
   checkSquare(final int x, final int y, final char value) {
     int dimenssion = grille.length;
     int leftpoint = 0;
@@ -197,7 +197,7 @@ public class GrilleImpl implements Grille {
   /**
   * La méthode affiche la grille .
   */
-  public static void displayGrille() {
+  public void displayGrille() {
     for (int l = 0; l < NEUF; l++) {
       for (int c = 0; c < NEUF; c++) {
         System.out.print(grille[l][c] + " ");
