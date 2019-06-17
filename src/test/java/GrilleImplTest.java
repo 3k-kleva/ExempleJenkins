@@ -123,7 +123,7 @@ public class GrilleImplTest{
   
   @Test
   public void completeTest() {  
-    grille = new char[][]{
+    char[][] grille = new char[][]{
     {'9', '4', '1', '5', '3', '8', '7', '6', '2'},
     {'3', '6', '8', '9', '7', '2', '4', '5', '1'},
     {'2', '5', '7', '6', '1', '4', '8', '3', '9'},
