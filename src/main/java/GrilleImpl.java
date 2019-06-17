@@ -5,6 +5,13 @@ import java.util.Arrays;
 public class GrilleImpl implements Grille {
   /** Déclaration de constante. */
   private static final int NEUF = 9;
+   /**
+  * Caractere possible a mettre dans la grille.
+  * pour une grille 9x9 : 1..9
+  * pour une grille 16x16: 0..9-a..f
+  */
+  private static final char[] POSSIBLE = new char[] {'1', '2', '3', '4', '5', '6',
+   '7', '8', '9', '0', 'a', 'b', 'c', 'd', 'e', 'f'};
   /** Tableau de caracteres à deux dimension .*/
   private char[][] grille = new char[][] {
     {'.', '@', '@', '@', '3', '@', '@', '6', '2'},
@@ -22,20 +29,20 @@ public class GrilleImpl implements Grille {
    * @return retourne la grile
    */
   public final char[][] getGrille() {
-    return grille;
+    return this.grille;
   }
   /**
    * Mutateur de grille.
    * @param nouvGille
    */
   public final void setGrille(final char[][] nouvGille) {
-    grille = nouvGille;
+    this.grille = nouvGille;
   }
   /**
    * @return largeur/hauteur de la grille 9 ou 16 .
    */
   public final int getDimension() {
-    return grille.length;
+    return this.grille.length;
   }
   /**
    * Test la presence de la valeur dans la colonne.
