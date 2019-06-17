@@ -45,7 +45,7 @@ public class GrilleImpl implements Grille {
    */
   public static boolean checkColumn(final int y, final char value) {
     for (int x = 0; x < NEUF; x++) {
-      if (grille[x][y] == value) {
+      if (this.grille[x][y] == value) {
         return true;
       }
     }
@@ -59,7 +59,7 @@ public class GrilleImpl implements Grille {
    */
   public static boolean checkLine(final int x, final char value) {
     for (int y = 0; y < NEUF; y++) {
-      if (grille[x][y] == value) {
+      if (this.grille[x][y] == value) {
         return true;
       }
     }
