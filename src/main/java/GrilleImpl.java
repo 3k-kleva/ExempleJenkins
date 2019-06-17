@@ -6,7 +6,7 @@ public class GrilleImpl implements Grille {
   /** Déclaration de constante. */
   private static final int NEUF = 9;
   /** Tableau de caracteres à deux dimension .*/
-  private static char[][] grille = new char[][] {
+  private char[][] grille = new char[][] {
     {'.', '@', '@', '@', '3', '@', '@', '6', '2'},
     {'@', '@', '@', '@', '7', '2', '@', '@', '1'},
     {'2', '@', '@', '6', '@', '@', '8', '@', '@'},
@@ -19,14 +19,16 @@ public class GrilleImpl implements Grille {
     };
   /**
    * Accesseur de grille.
+   * @return retourne la grile
    */
-  public char[][] getGrille() {
+  public final char[][] getGrille() {
     return grille;
   }
   /**
    * Mutateur de grille.
+   * @param nouvGille
    */
-  public void setGrille(char[][] nouvGille) {
+  public final void setGrille(final char[][] nouvGille) {
     grille = nouvGille;
   }
   /**
@@ -103,7 +105,7 @@ public class GrilleImpl implements Grille {
   *        ('1',...,'9')
   */
   public final void setValue(final int x, final int y, final char value) {
-    int dimenssion = grille.length;
+    //int dimenssion = grille.length;
     boolean cont = false;
     cont = Arrays.toString(POSSIBLE).contains(Character.toString(value));
     if (cont == true) {
