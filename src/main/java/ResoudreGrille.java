@@ -11,7 +11,7 @@ public final class ResoudreGrille {
    * @param args liste d'argument
    */
   public void main(final String[] args) {
-    //GrilleImpl lagrille = new GrilleImpl();
-    GrilleImpl.displayGrille();
+    GrilleImpl lagrille = new GrilleImpl();
+    lagrille.displayGrille();
   }
 }
