@@ -94,16 +94,16 @@ public class GrilleImplTest{
   
   @Test
   public void checkColumnTest() {  
-    assertTrue(GrilleImpl.checkColumn(2, '6'));
+    assertTrue(grid.checkColumn(2, '6'));
   }
   @Test
   public void checkColumnTest1() {  
-    assertFalse(GrilleImpl.checkColumn(2, '7'));
+    assertFalse(grid.checkColumn(2, '7'));
   } 
   
   @Test
   public void checkLineTest() {  
-    assertTrue(GrilleImpl.checkLine(2, '6'));
+    assertTrue(grid.checkLine(2, '6'));
   }
 /**  @Test
   public void checkLineTest2() {  
@@ -114,11 +114,11 @@ public class GrilleImplTest{
   */
   @Test
   public void checkSquareTest() {  
-    assertTrue(GrilleImpl.checkSquare(2, 2, '2'));
+    assertTrue(grid.checkSquare(2, 2, '2'));
   }
   @Test
   public void checkSquareTest1() {  
-    assertFalse(GrilleImpl.checkSquare(2, 2, '7'));
+    assertFalse(grid.checkSquare(2, 2, '7'));
   } 
   
   @Test
