@@ -6,7 +6,7 @@ public class GrilleImpl implements Grille {
   /** Déclaration de constante. */
   private static final int NEUF = 9;
   /** Tableau de caracteres à deux dimension .*/
-  public static char[][] grille = new char[][] {
+  private static char[][] grille = new char[][] {
     {'.', '@', '@', '@', '3', '@', '@', '6', '2'},
     {'@', '@', '@', '@', '7', '2', '@', '@', '1'},
     {'2', '@', '@', '6', '@', '@', '8', '@', '@'},
@@ -17,6 +17,18 @@ public class GrilleImpl implements Grille {
     {'4', '@', '@', '3', '8', '@', '@', '@', '@'},
     {'7', '3', '@', '@', '6', '@', '@', '@', '@'}
     };
+  /**
+   * Accesseur de grille.
+   */
+  public char[][] getGrille() {
+    return grille;
+  }
+  /**
+   * Accesseur de grille.
+   */
+  public void setGrille(char[][] nouvGille) {
+    grille = nouvGille;
+  }
   /**
    * @return largeur/hauteur de la grille 9 ou 16 .
    */
