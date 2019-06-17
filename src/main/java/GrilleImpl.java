@@ -24,7 +24,7 @@ public class GrilleImpl implements Grille {
     return grille;
   }
   /**
-   * Accesseur de grille.
+   * Mutateur de grille.
    */
   public void setGrille(char[][] nouvGille) {
     grille = nouvGille;
