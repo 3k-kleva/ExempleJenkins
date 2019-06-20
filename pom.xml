@@ -53,6 +53,14 @@
 		<artifactId>findbugs-maven-plugin</artifactId>
 		<version>3.0.4</version>
 	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.gridkit.jvmtool/hprof-heap -->
+	<dependency>
+		<groupId>org.gridkit.jvmtool</groupId>
+		<artifactId>hprof-heap</artifactId>
+		<version>0.7</version>
+	</dependency>
+
 
   </dependencies>
 

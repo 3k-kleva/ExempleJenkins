@@ -3,11 +3,6 @@
  */
 public interface Grille {
  /**
-  * Caractere de case vide.
-  */
- char EMPTY = '@';
-
- /**
   * @return largeur/hauteur de la grille.
   */
  int getDimension();
