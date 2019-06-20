@@ -37,7 +37,7 @@ public class GrilleImpl implements Grille {
     this.grille = new char[NEUF][NEUF];
     for (int i = 0; i < NEUF; i++) {
       for ( int j = 0; j < NEUF; j++) {
-        this.grille = grille[i][j];
+        this.grille[i][j] = grille[i][j];
       }
     }
   }
