@@ -29,15 +29,15 @@ public class GrilleImpl implements Grille {
     {'7', '3', '@', '@', '6', '@', '@', '@', '@'}
     };
   /** Déclaration d'un exemple de grille. */
-  private int[][] grille;
+  private char[][] grille;
   /**
    * Constructeur Grille .
    */
-  public void GrilleImpl(int[][] grille) {
-    this.grille = new int[NEUF][NEUF];
+  public void GrilleImpl(char[][] grille) {
+    this.grille = new char[NEUF][NEUF];
     for (int i = 0; i < NEUF; i++) {
       for ( int j = 0; j < NEUF; j++) {
-        this.grille = grid[i][j];
+        this.grille = grille[i][j];
       }
     }
   }
@@ -45,14 +45,14 @@ public class GrilleImpl implements Grille {
    * Accesseur de grille.
    * @return retourne la grile
    */
-  public final static char[][] getGrille() {
+  public final char[][] getGrille() {
     return grille;
   }
   /**
    * Mutateur de grille.
    * @param nouvGille
    */
-  public final static void setGrille(final char[][] nouvGille) {
+  public final void setGrille(final char[][] nouvGille) {
     grille = nouvGille;
   }
   /**
