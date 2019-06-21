@@ -4,7 +4,7 @@ import org.junit.Rule;
 import org.junit.rules.ExpectedException;
 public class GrilleImplTest{ 
   static final char M = '.';
-  GrilleImpl grid = new GrilleImpl();
+  GrilleImpl grid = new GrilleImpl(GRILLE_A_RESOUDRE);
   @Test
   public void GetDimensionTest() {
     assertEquals(9, grid.getDimension());	
@@ -123,7 +123,7 @@ public class GrilleImplTest{
   
   @Test
   public void completeTest() {  
-    char[][] grille = new char[][]{
+    char[][] grilleComplete = new char[][]{
     {'9', '4', '1', '5', '3', '8', '7', '6', '2'},
     {'3', '6', '8', '9', '7', '2', '4', '5', '1'},
     {'2', '5', '7', '6', '1', '4', '8', '3', '9'},
@@ -136,7 +136,7 @@ public class GrilleImplTest{
     {'4', '1', '2', '3', '8', '5', '9', '7', '6'},
     {'7', '3', '5', '2', '6', '9', '1', '4', '8'}
 	};
-	grid.setGrille(grille);
+	GrilleImpl grid = new GrilleImpl(grilleComplete);
     assertTrue(grid.complete());	
   }
   
