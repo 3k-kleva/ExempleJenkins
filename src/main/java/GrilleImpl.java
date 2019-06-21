@@ -42,6 +42,17 @@ public class GrilleImpl implements Grille {
     }
   }
   /**
+   * Constructeur Grille avec argument .
+   */
+  public void GrilleImpl(char[][] tab) {
+    this.grille = new char[NEUF][NEUF];
+    for (int i = 0; i < NEUF; i++) {
+      for ( int j = 0; j < NEUF; j++) {
+        this.grille[i][j] = tab[i][j];
+      }
+    }
+  }
+  /**
    * Accesseur de grille.
    * @return retourne la grile
    */
