@@ -4,7 +4,7 @@ import org.junit.Rule;
 import org.junit.rules.ExpectedException;
 public class GrilleImplTest{ 
   static final char M = '.';
-  GrilleImpl grid = new GrilleImpl(GRILLE_A_RESOUDRE);
+  GrilleImpl grid = new GrilleImpl();
   @Test
   public void GetDimensionTest() {
     assertEquals(9, grid.getDimension());	

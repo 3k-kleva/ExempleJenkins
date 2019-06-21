@@ -33,11 +33,11 @@ public class GrilleImpl implements Grille {
   /**
    * Constructeur Grille .
    */
-  public void GrilleImpl(char[][] grille) {
+  public void GrilleImpl(GRILLE_A_RESOUDRE) {
     this.grille = new char[NEUF][NEUF];
     for (int i = 0; i < NEUF; i++) {
       for ( int j = 0; j < NEUF; j++) {
-        this.grille[i][j] = grille[i][j];
+        this.grille[i][j] = GRILLE_A_RESOUDRE[i][j];
       }
     }
   }
