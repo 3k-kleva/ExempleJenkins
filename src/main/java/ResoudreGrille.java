@@ -10,7 +10,7 @@ public final class ResoudreGrille {
    * Point d'entrée du programe.
    * @param args liste d'argument
    */
-  public void main(final String[] args) {
+  public static void main(final String[] args) {
     GrilleImpl lagrille = new GrilleImpl();
     lagrille.displayGrille();
   }
