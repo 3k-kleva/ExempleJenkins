@@ -121,7 +121,7 @@ public class GrilleImplTest{
     assertFalse(grid.checkSquare(2, 2, '7'));
   } 
   
-  @Test
+/*  @Test
   public void completeTest() {  
     char[][] grilleComplete = new char[][]{
     {'9', '4', '1', '5', '3', '8', '7', '6', '2'},
@@ -138,6 +138,6 @@ public class GrilleImplTest{
 	};
 	GrilleImpl grid = new GrilleImpl(grilleComplete);
     assertTrue(grid.complete());	
-  }
+  }*/
   
 }
