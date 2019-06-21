@@ -33,7 +33,7 @@ public class GrilleImpl implements Grille {
   /**
    * Constructeur Grille .
    */
-  public void GrilleImpl(GRILLE_A_RESOUDRE) {
+  public void GrilleImpl() {
     this.grille = new char[NEUF][NEUF];
     for (int i = 0; i < NEUF; i++) {
       for ( int j = 0; j < NEUF; j++) {
