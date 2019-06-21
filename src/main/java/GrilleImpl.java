@@ -187,11 +187,11 @@ public class GrilleImpl implements Grille {
         for (int j = 0; j < dimension; j++) {
           if (grille[i][j] == EMPTY) {
             controle = false;
-            continue;
+            break;
           }
         }
         if (controle == false) {
-          continue;
+          break;
         }
      }
      return controle;
@@ -239,5 +239,25 @@ public class GrilleImpl implements Grille {
       }
       System.out.println("                  ");
     }
+  }
+  /** */
+  public boolean resoudre() {
+    for (int l = 0; l < NEUF; l++) {
+      for (int c = 0; c < NEUF; c++) {
+        // On parcours les valeurs possibles
+        for (int v = 0; v < NEUF; v++) {
+          // Si la valeur est possible on l'essai
+          if (possible(l, c, POSSIBLE[v]) {
+            this.setValue(l, c, POSSIBLE[v]);
+			v = NEUF;
+		  }
+		}
+      }
+    }
+	if (complete()) {
+      return true;
+	} else {
+       resoudre();
+	}
   }
 }
