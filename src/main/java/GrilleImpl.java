@@ -247,7 +247,7 @@ public class GrilleImpl implements Grille {
         // On parcours les valeurs possibles
         for (int v = 0; v < NEUF; v++) {
           // Si la valeur est possible on l'essai
-          if (possible(l, c, POSSIBLE[v]) {
+          if (possible(l, c, POSSIBLE[v])) {
             this.setValue(l, c, POSSIBLE[v]);
 			v = NEUF;
 		  }
