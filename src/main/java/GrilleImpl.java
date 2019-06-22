@@ -18,7 +18,7 @@ public class GrilleImpl implements Grille {
    '7', '8', '9'};
   /** Tableau de caracteres à deux dimension .*/
   public static final char[][] GRILLE_A_RESOUDRE = new char[][] {
-    {'.', '@', '@', '@', '3', '@', '@', '6', '2'},
+    {'@', '@', '@', '@', '3', '@', '@', '6', '2'},
     {'@', '@', '@', '@', '7', '2', '@', '@', '1'},
     {'2', '@', '@', '6', '@', '@', '8', '@', '@'},
     {'@', '@', '@', '4', '5', '6', '3', '8', '7'},
