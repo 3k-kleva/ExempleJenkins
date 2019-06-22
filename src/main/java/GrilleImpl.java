@@ -18,26 +18,17 @@ public class GrilleImpl implements Grille {
    '7', '8', '9'};
   /** Tableau de caracteres à deux dimension .*/
   public static final char[][] GRILLE_A_RESOUDRE = new char[][] {
-    {'8', '@', '2', '@', '5', '@', '7', '@', '1'},
-    {'@', '@', '7', '@', '8', '2', '4', '6', '@'},
-    {'@', '1', '@', '9', '@', '@', '0', '@', '@'},
-    {'6', '@', '@', '@', '@', '1', '8', '3', '2'},
-    {'5', '@', '4', '@', '@', '@', '@', '@', '9'},
-    {'1', '8', '@', '3', '@', '@', '@', '@', '6'},
-    {'0', '@', '5', '@', '@', '4', '@', '2', '@'},
-    {'0', '9', '@', '6', '1', '@', '3', '@', '@'},
-    {'3', '@', '8', '@', '9', '@', '6', '@', '7'}
+    {'@', '@', '@', '@', '3', '@', '@', '6', '2'},
+    {'@', '@', '@', '@', '7', '2', '@', '@', '1'},
+    {'2', '@', '@', '6', '@', '@', '8', '@', '@'},
+    {'@', '@', '@', '4', '5', '6', '3', '8', '7'},
+    {'6', '7', '4', '@', '@', '@', '2', '@', '@'},
+    {'5', '8', '@', '1', '@', '7', '6', '@', '4'},
+    {'@', '@', '6', '@', '@', '1', '@', '@', '3'},
+    {'4', '@', '@', '3', '8', '@', '@', '@', '@'},
+    {'7', '3', '@', '@', '6', '@', '@', '@', '@'}
     };
 	
-/*8 0 2 0 5 0 7 0 1 
-0 0 7 0 8 2 4 6 0 
-0 1 0 9 0 0 0 0 0 
-6 0 0 0 0 1 8 3 2 
-5 0 0 0 0 0 0 0 9 
-1 8 4 3 0 0 0 0 6 
-0 0 0 0 0 4 0 2 0 
-0 9 5 6 1 0 3 0 0 
-3 0 8 0 9 0 6 0 7 */
   /** Déclaration d'un exemple de grille. */
   private char[][] grille;
   /**
@@ -150,26 +141,12 @@ public class GrilleImpl implements Grille {
   *        ('1',...,'9')
   */
   public final void setValue(final int x, final int y, final char value) {
-    //int dimenssion = grille.length;
-    boolean cont = false;
-    cont = Arrays.toString(POSSIBLE).contains(Character.toString(value));
-    if (cont == true) {
-    //verification
-    if ((x >= NEUF) || (x < 0)) {
-        throw new IllegalArgumentException("x est hors bornes (0-8)");
-    } else if ((y >= NEUF) || (y < 0)) {
-          throw new IllegalArgumentException("y est hors bornes (0-8)");
-        } else if ((!checkColumn(y, value)) && (!checkLine(x, value))
-            && (!checkSquare(x, y, value)) && !(grille[x][y] == EMPTY)) {
-            throw new IllegalArgumentException("la valeur est interdite "
-                     + "aux vues des autres valeurs de la grille");
-            } else {
-              grille[x][y] = value;
-            }
+    if ((possible(x, y, value)) && !(grille[x][y] == EMPTY)) {
+      throw new IllegalArgumentException("la valeur est interdite "
+         + "aux vues des autres valeurs de la grille");
     } else {
-        throw new IllegalArgumentException("La value n'est"
-                               + " pas un caractere autorise");
-      }
+        grille[x][y] = value;
+    }
   }
  /**
   * Recupere une valeur de la grille.
@@ -229,7 +206,7 @@ public class GrilleImpl implements Grille {
           throw new IllegalArgumentException("y est hors bornes (0-8)");
       }
       if ((!checkColumn(y, value)) && (!checkLine(x, value))
-                  && (!checkSquare(x, y, value)) && (grille[x][y] == EMPTY)) {
+                  && (!checkSquare(x, y, value))) {
             return true;
       } else {
              return false;
@@ -254,27 +231,25 @@ public class GrilleImpl implements Grille {
   public boolean resoudre() {
     for (int l = 0; l < NEUF; l++) {
       for (int c = 0; c < NEUF; c++) {
-        // On parcours les valeurs possibles
-        for (int v = 0; v < NEUF; v++) {
-          // Si la valeur est possible on l'essai
-          if (possible(l, c, POSSIBLE[v])) {
-            this.setValue(l, c, POSSIBLE[v]);
-			v = NEUF;
-		  }
-		/*  if (resoudre()){
-			  return true;
-		  } else {
-			  this.setValue(l, c, EMPTY);
-		  } */
-		}
+		if (this.grile[l][c] == EMPTY) {
+			// On parcours les valeurs possibles
+			for (int v = 0; v < NEUF; v++) {
+			  // Si la valeur est possible on l'essai
+			  if (possible(l, c, POSSIBLE[v])) {
+				//this.setValue(l, c, POSSIBLE[v]);
+				this.grile[l][c] == POSSIBLE[v];
+				//v = NEUF;
+				if (resoudre()){
+				  return true;
+			    } else {
+				  //.setValue(l, c, EMPTY);
+				  this.grile[l][c] == EMPTY;
+			    }
+			  }
+		    }
+		    return false;
+        }
       }
-    } /*
-	if (complete()) {
-      return true;
-	} else {
-       resoudre();
-	}
-	return complete();*/
+    }
 	return true;
-  }
 }
