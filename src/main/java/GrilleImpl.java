@@ -251,11 +251,11 @@ public class GrilleImpl implements Grille {
             this.setValue(l, c, POSSIBLE[v]);
 			v = NEUF;
 		  }
-		  if (resoudre()){
+		/*  if (resoudre()){
 			  return true;
 		  } else {
 			  this.setValue(l, c, EMPTY);
-		  }
+		  } */
 		}
       }
     } /*
