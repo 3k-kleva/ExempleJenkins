@@ -259,5 +259,6 @@ public class GrilleImpl implements Grille {
 	} else {
        resoudre();
 	}
+	return complete();
   }
 }
