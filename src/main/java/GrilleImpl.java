@@ -57,15 +57,15 @@ public class GrilleImpl implements Grille {
    * Accesseur de grille.
    * @return retourne la grile
    */
-  public final char[][] getGrille() {
-    return grille;
+  public final char getGrille(final int x, final int y) {
+    return grille[x][y];
   }
   /**
    * Mutateur de grille.
    * @param nouvGille
    */
-  public final void setGrille(final char[][] nouvGille) {
-    grille = nouvGille;
+  public final void setGrille(final int x, final int y, final char nouvGille) {
+    grille[x][y] = nouvGille;
   }
   /**
    * @return largeur/hauteur de la grille 9 ou 16 .
@@ -231,19 +231,19 @@ public class GrilleImpl implements Grille {
   public boolean resoudre() {
     for (int l = 0; l < NEUF; l++) {
       for (int c = 0; c < NEUF; c++) {
-		if (this.grile[l][c] == EMPTY) {
+		if (this.grille[l][c] == EMPTY) {
 			// On parcours les valeurs possibles
 			for (int v = 0; v < NEUF; v++) {
 			  // Si la valeur est possible on l'essai
 			  if (possible(l, c, POSSIBLE[v])) {
 				//this.setValue(l, c, POSSIBLE[v]);
-				this.grile[l][c] = POSSIBLE[v];
+				this.grille[l][c] = POSSIBLE[v];
 				//v = NEUF;
 				if (resoudre()){
 				  return true;
 			    } else {
 				  //.setValue(l, c, EMPTY);
-				  this.grile[l][c] = EMPTY;
+				  this.grille[l][c] = EMPTY;
 			    }
 			  }
 		    }
