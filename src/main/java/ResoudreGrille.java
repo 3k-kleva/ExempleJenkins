@@ -17,5 +17,6 @@ public final class ResoudreGrille {
 	System.out.println("                        ");
 	System.out.println("Grille de sudoku résolu!");
 	lagrille.resoudre();
+	lagrille.displayGrille();
   } 
 }
