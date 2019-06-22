@@ -9,15 +9,13 @@ public class GrilleImplTest{
   public void GetDimensionTest() {
     assertEquals(9, grid.getDimension());	
   }
-  
+  /*
   @Test
   public void setValueTest() {
     grid.setValue(2, 2, '9');
   } 
-  /** Déclaration de l'exception. */
   @Rule
   public ExpectedException thrown = ExpectedException.none();
-  /** Test de la methode division cas ou b vaut 0. */
   @Test
   public void setValueTest2() { 
 	thrown.expect(IllegalArgumentException.class);
@@ -58,11 +56,6 @@ public class GrilleImplTest{
 	thrown.expectMessage("y est hors bornes (0-8)");
 	grid.getValue(3, 9);
   } 
-  /**  
-  @Test
-  public void getValueTest3() {  
-    assertArrayEquals('6', grid.getValue(0, 7));	
-  } */
   
   @Test
   public void possibleTest1() {  
@@ -105,13 +98,13 @@ public class GrilleImplTest{
   public void checkLineTest() {  
     assertTrue(grid.checkLine(2, '6'));
   }
-/**  @Test
+  @Test
   public void checkLineTest2() {  
 	//assertFalse(GrilleImpl.checkLine(2, '6'));
 	boolean bool = GrilleImpl.checkLine(2, '7');
 	assertFalse(bool);
   } 
-  */
+  
   @Test
   public void checkSquareTest() {  
     assertTrue(grid.checkSquare(2, 2, '2'));
@@ -139,5 +132,5 @@ public class GrilleImplTest{
 	GrilleImpl grid = new GrilleImpl(grilleComplete);
     assertTrue(grid.complete());	
   }
-  
+  */
 }
