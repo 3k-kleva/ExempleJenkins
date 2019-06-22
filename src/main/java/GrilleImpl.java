@@ -237,13 +237,13 @@ public class GrilleImpl implements Grille {
 			  // Si la valeur est possible on l'essai
 			  if (possible(l, c, POSSIBLE[v])) {
 				//this.setValue(l, c, POSSIBLE[v]);
-				this.grile[l][c] == POSSIBLE[v];
+				this.grile[l][c] = POSSIBLE[v];
 				//v = NEUF;
 				if (resoudre()){
 				  return true;
 			    } else {
 				  //.setValue(l, c, EMPTY);
-				  this.grile[l][c] == EMPTY;
+				  this.grile[l][c] = EMPTY;
 			    }
 			  }
 		    }
@@ -252,4 +252,5 @@ public class GrilleImpl implements Grille {
       }
     }
 	return true;
+  }
 }
