@@ -14,10 +14,10 @@ public class GrilleImpl implements Grille {
   * pour une grille 9x9 : 1..9
   * pour une grille 16x16: 0..9-a..f
   */
-  public static final char[] POSSIBLE = new char[] {'1', '2', '3', '4', '5', '6',
+  protected static final char[] POSSIBLE = new char[] {'1', '2', '3', '4', '5', '6',
    '7', '8', '9'};
   /** Tableau de caracteres à deux dimension .*/
-  public static final char[][] GRILLE_A_RESOUDRE = new char[][] {
+  protected static final char[][] GRILLE_A_RESOUDRE = new char[][] {
     {'@', '@', '@', '@', '3', '@', '@', '6', '2'},
     {'@', '@', '@', '@', '7', '2', '@', '@', '1'},
     {'2', '@', '@', '6', '@', '@', '8', '@', '@'},
@@ -141,12 +141,26 @@ public class GrilleImpl implements Grille {
   *        ('1',...,'9')
   */
   public final void setValue(final int x, final int y, final char value) {
-    if ((possible(x, y, value)) && !(grille[x][y] == EMPTY)) {
-      throw new IllegalArgumentException("la valeur est interdite "
-         + "aux vues des autres valeurs de la grille");
+    //int dimenssion = grille.length;
+    boolean cont = false;
+    cont = Arrays.toString(POSSIBLE).contains(Character.toString(value));
+    if (cont == true) {
+    //verification
+    if ((x >= NEUF) || (x < 0)) {
+        throw new IllegalArgumentException("x est hors bornes (0-8)");
+    } else if ((y >= NEUF) || (y < 0)) {
+          throw new IllegalArgumentException("y est hors bornes (0-8)");
+        } else if ((!checkColumn(y, value)) && (!checkLine(x, value))
+            && (!checkSquare(x, y, value)) && !(grille[x][y] == EMPTY)) {
+            throw new IllegalArgumentException("la valeur est interdite "
+                     + "aux vues des autres valeurs de la grille");
+            } else {
+              grille[x][y] = value;
+            }
     } else {
-        grille[x][y] = value;
-    }
+        throw new IllegalArgumentException("La value n'est"
+                               + " pas un caractere autorise");
+      }
   }
  /**
   * Recupere une valeur de la grille.
