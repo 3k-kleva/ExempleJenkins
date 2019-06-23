@@ -13,10 +13,10 @@ public class GrilleImpl implements Grille {
   * pour une grille 9x9 : 1..9
   * pour une grille 16x16: 0..9-a..f
   */
-  public static final char[] POSSIBLE = new char[]
+  private static final char[] POSSIBLE = new char[]
   {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
   /** Tableau de caracteres à deux dimension .*/
-  public static final char[][] GRILLE_A_RESOUDRE = new char[][] {
+  private static final char[][] GRILLE_A_RESOUDRE = new char[][] {
     {'@', '@', '@', '@', '3', '@', '@', '6', '2'},
     {'@', '@', '@', '@', '7', '2', '@', '@', '1'},
     {'2', '@', '@', '6', '@', '@', '8', '@', '@'},
