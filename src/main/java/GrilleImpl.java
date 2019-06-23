@@ -1,4 +1,3 @@
-import java.util.Arrays;
 /**
  * Implementation d'une grille .
  */
@@ -66,7 +65,7 @@ public class GrilleImpl implements Grille {
    * Mutateur de grille.
    * @param x est entier
    * @param y est un entier
-   * @param nouvGrille est un caractere 
+   * @param nouvGrille est un caractere
    */
   public final void setGrille(final int x, final int y, final char nouvGrille) {
     grille[x][y] = nouvGrille;
@@ -79,7 +78,6 @@ public class GrilleImpl implements Grille {
   }
   /**
    * Test la presence de la valeur dans le tableau.
-   * @param x position x dans la grille
    * @param value       valeur à rechercher dans le tableau
    * @return vrai si la valeur est presente sinon faux
    */
