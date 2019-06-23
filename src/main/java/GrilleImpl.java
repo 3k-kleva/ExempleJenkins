@@ -66,16 +66,30 @@ public class GrilleImpl implements Grille {
    * Mutateur de grille.
    * @param x est entier
    * @param y est un entier
-   * @param nouvGille
+   * @param nouvGrille est un caractere 
    */
-  public final void setGrille(final int x, final int y, final char nouvGille) {
-    grille[x][y] = nouvGille;
+  public final void setGrille(final int x, final int y, final char nouvGrille) {
+    grille[x][y] = nouvGrille;
   }
   /**
    * @return largeur/hauteur de la grille 9 ou 16 .
    */
   public final int getDimension() {
     return grille.length;
+  }
+  /**
+   * Test la presence de la valeur dans le tableau.
+   * @param x position x dans la grille
+   * @param value       valeur à rechercher dans le tableau
+   * @return vrai si la valeur est presente sinon faux
+   */
+  public final boolean checkCaractere(final char value) {
+    for (int x = 0; x < NEUF; x++) {
+      if (this.POSSIBLE[x] == value) {
+        return true;
+      }
+    }
+    return false;
   }
   /**
    * Test la presence de la valeur dans la colonne.
@@ -146,9 +160,9 @@ public class GrilleImpl implements Grille {
   */
   public final void setValue(final int x, final int y, final char value) {
     //int dimenssion = grille.length;
-    boolean cont = false;
-    cont = Arrays.toString(POSSIBLE).contains(Character.toString(value));
-    if (cont == true) {
+    //boolean cont = false;
+    //cont = Arrays.toString(POSSIBLE).contains(Character.toString(value));
+    if (checkCaractere(value)) {
     //verification
     if ((x >= NEUF) || (x < 0)) {
         throw new IllegalArgumentException("x est hors bornes (0-8)");
@@ -186,20 +200,14 @@ public class GrilleImpl implements Grille {
    * @return true si la grille est complete
    */
    public final boolean complete() {
-     int dimension = this.getDimension();
-     boolean controle = true;
-     for (int i = 0; i < dimension; i++) {
-        for (int j = 0; j < dimension; j++) {
+     for (int i = 0; i < NEUF; i++) {
+        for (int j = 0; j < NEUF; j++) {
           if (grille[i][j] == EMPTY) {
-            controle = false;
-            break;
+            return false;
           }
         }
-        if (controle == false) {
-          break;
-        }
      }
-     return controle;
+     return true;
    }
  /**
   * Test si une valeur est possible dans la grille par rapport a ce qu'elle .
@@ -213,9 +221,9 @@ public class GrilleImpl implements Grille {
   * @return true si c'est une valeur possible
   */
   public final boolean possible(final int x, final int y, final char value) {
-    boolean cont = false;
-    cont = Arrays.toString(POSSIBLE).contains(Character.toString(value));
-    if (cont == true) {
+    //boolean cont = false;
+    //cont = Arrays.toString(POSSIBLE).contains(Character.toString(value));
+    if (checkCaractere(value)) {
       //verification
       if ((x >= NEUF) || (x < 0)) {
         throw new IllegalArgumentException("x est hors bornes (0-8)");
@@ -241,7 +249,7 @@ public class GrilleImpl implements Grille {
       System.out.println("                  ");
     }
   }
-  /** La fonction resoud la grille. 
+  /** La fonction resoud la grille.
    * @return true si la grille est résolue
    */
   public final boolean resoudre() {
