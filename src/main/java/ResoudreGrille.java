@@ -12,11 +12,11 @@ public final class ResoudreGrille {
    */
   public static void main(final String[] args) {
     GrilleImpl lagrille = new GrilleImpl();
-	System.out.println("Grille de sudoku à résoudre!");
+    System.out.println("Grille de sudoku à résoudre!");
     lagrille.displayGrille();
-	System.out.println("                        ");
-	System.out.println("Grille de sudoku résolu!");
-	lagrille.resoudre();
-	lagrille.displayGrille();
-  } 
+    System.out.println("                        ");
+    System.out.println("Grille de sudoku résolu!");
+    lagrille.resoudre();
+    lagrille.displayGrille();
+  }
 }

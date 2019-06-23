@@ -14,8 +14,8 @@ public class GrilleImpl implements Grille {
   * pour une grille 9x9 : 1..9
   * pour une grille 16x16: 0..9-a..f
   */
-  protected static final char[] POSSIBLE = new char[] 
-  {'1', '2', '3', '4', '5', '6','7', '8', '9'};
+  protected static final char[] POSSIBLE = new char[]
+  {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
   /** Tableau de caracteres à deux dimension .*/
   protected static final char[][] GRILLE_A_RESOUDRE = new char[][] {
     {'@', '@', '@', '@', '3', '@', '@', '6', '2'},
@@ -43,7 +43,7 @@ public class GrilleImpl implements Grille {
   }
   /**
    * Constructeur Grille avec argument .
-   * @param tab[] est une grille
+   * @param tab est une grille
    */
   public GrilleImpl(final char[][] tab) {
     this.grille = new char[NEUF][NEUF];
@@ -241,7 +241,9 @@ public class GrilleImpl implements Grille {
       System.out.println("                  ");
     }
   }
-  /** La fonction resoud la grille. */
+  /** La fonction resoud la grille. 
+   * @return true si la grille est résolue
+   */
   public final boolean resoudre() {
     for (int l = 0; l < NEUF; l++) {
       for (int c = 0; c < NEUF; c++) {
@@ -252,10 +254,9 @@ public class GrilleImpl implements Grille {
               if (possible(l, c, POSSIBLE[v])) {
                 //this.setValue(l, c, POSSIBLE[v]);
                 this.grille[l][c] = POSSIBLE[v];
-                if (resoudre()){
+                if (resoudre()) {
                   return true;
                 } else {
-				   //.setValue(l, c, EMPTY);
                    this.grille[l][c] = EMPTY;
                 }
             }
