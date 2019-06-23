@@ -156,7 +156,7 @@ public class GrilleImplTest{
   }
   
   @Test
-  public void checkCaractereTest() {
+  public void checkCaractereTest1() {
     assertFalse(checkCaractere('-'));
   }
 }
