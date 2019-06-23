@@ -14,8 +14,8 @@ public class GrilleImpl implements Grille {
   * pour une grille 9x9 : 1..9
   * pour une grille 16x16: 0..9-a..f
   */
-  protected static final char[] POSSIBLE = new char[] {'1', '2', '3', '4', '5', '6',
-   '7', '8', '9'};
+  protected static final char[] POSSIBLE = new char[] 
+  {'1', '2', '3', '4', '5', '6','7', '8', '9'};
   /** Tableau de caracteres à deux dimension .*/
   protected static final char[][] GRILLE_A_RESOUDRE = new char[][] {
     {'@', '@', '@', '@', '3', '@', '@', '6', '2'},
@@ -28,7 +28,6 @@ public class GrilleImpl implements Grille {
     {'4', '@', '@', '3', '8', '@', '@', '@', '@'},
     {'7', '3', '@', '@', '6', '@', '@', '@', '@'}
     };
-	
   /** Déclaration d'un exemple de grille. */
   private char[][] grille;
   /**
@@ -37,24 +36,27 @@ public class GrilleImpl implements Grille {
   public GrilleImpl() {
     this.grille = new char[NEUF][NEUF];
     for (int i = 0; i < NEUF; i++) {
-      for ( int j = 0; j < NEUF; j++) {
+      for (int j = 0; j < NEUF; j++) {
         this.grille[i][j] = GRILLE_A_RESOUDRE[i][j];
       }
     }
   }
   /**
    * Constructeur Grille avec argument .
+   * @param tab[] est une grille
    */
-  public GrilleImpl(char[][] tab) {
+  public GrilleImpl(final char[][] tab) {
     this.grille = new char[NEUF][NEUF];
     for (int i = 0; i < NEUF; i++) {
-      for ( int j = 0; j < NEUF; j++) {
+      for (int j = 0; j < NEUF; j++) {
         this.grille[i][j] = tab[i][j];
       }
     }
   }
   /**
    * Accesseur de grille.
+   * @param x est entier
+   * @param y est un entier
    * @return retourne la grile
    */
   public final char getGrille(final int x, final int y) {
@@ -62,6 +64,8 @@ public class GrilleImpl implements Grille {
   }
   /**
    * Mutateur de grille.
+   * @param x est entier
+   * @param y est un entier
    * @param nouvGille
    */
   public final void setGrille(final int x, final int y, final char nouvGille) {
@@ -79,7 +83,7 @@ public class GrilleImpl implements Grille {
    * @param value       valeur à rechercher dans la grille
    * @return vrai si la valeur est presente sinon faux
    */
-  public boolean checkColumn(final int y, final char value) {
+  public final boolean checkColumn(final int y, final char value) {
     for (int x = 0; x < NEUF; x++) {
       if (this.grille[x][y] == value) {
         return true;
@@ -93,7 +97,7 @@ public class GrilleImpl implements Grille {
    * @param value       valeur à rechercher dans la grille
    * @return vrai si la valeur est presente sinon faux
    */
-  public boolean checkLine(final int x, final char value) {
+  public final boolean checkLine(final int x, final char value) {
     for (int y = 0; y < NEUF; y++) {
       if (this.grille[x][y] == value) {
         return true;
@@ -108,7 +112,7 @@ public class GrilleImpl implements Grille {
    * @param value       valeur à rechercher dans la grille
    * @return vrai si la valeur est presente sinon faux
    */
-  public boolean
+  public final boolean
   checkSquare(final int x, final int y, final char value) {
     int dimenssion = grille.length;
     int leftpoint = 0;
@@ -219,12 +223,8 @@ public class GrilleImpl implements Grille {
       if ((y >= NEUF) || (y < 0)) {
           throw new IllegalArgumentException("y est hors bornes (0-8)");
       }
-      if ((!checkColumn(y, value)) && (!checkLine(x, value))
-                  && (!checkSquare(x, y, value))) {
-            return true;
-      } else {
-             return false;
-         }
+      return ((!checkColumn(y, value)) && (!checkLine(x, value))
+                  && (!checkSquare(x, y, value)));
     } else {
         throw new IllegalArgumentException("La value n'est pas "
         + "un caractere autorise");
@@ -233,7 +233,7 @@ public class GrilleImpl implements Grille {
   /**
   * La méthode affiche la grille .
   */
-  public void displayGrille() {
+  public final void displayGrille() {
     for (int l = 0; l < NEUF; l++) {
       for (int c = 0; c < NEUF; c++) {
         System.out.print(grille[l][c] + " ");
@@ -241,30 +241,29 @@ public class GrilleImpl implements Grille {
       System.out.println("                  ");
     }
   }
-  /** */
-  public boolean resoudre() {
+  /** La fonction resoud la grille. */
+  public final boolean resoudre() {
     for (int l = 0; l < NEUF; l++) {
       for (int c = 0; c < NEUF; c++) {
-		if (this.grille[l][c] == EMPTY) {
-			// On parcours les valeurs possibles
-			for (int v = 0; v < NEUF; v++) {
-			  // Si la valeur est possible on l'essai
-			  if (possible(l, c, POSSIBLE[v])) {
-				//this.setValue(l, c, POSSIBLE[v]);
-				this.grille[l][c] = POSSIBLE[v];
-				//v = NEUF;
-				if (resoudre()){
-				  return true;
-			    } else {
-				  //.setValue(l, c, EMPTY);
-				  this.grille[l][c] = EMPTY;
-			    }
-			  }
-		    }
-		    return false;
+        if (this.grille[l][c] == EMPTY) {
+            // On parcours les valeurs possibles
+            for (int v = 0; v < NEUF; v++) {
+              // Si la valeur est possible on l'essai
+              if (possible(l, c, POSSIBLE[v])) {
+                //this.setValue(l, c, POSSIBLE[v]);
+                this.grille[l][c] = POSSIBLE[v];
+                if (resoudre()){
+                  return true;
+                } else {
+				   //.setValue(l, c, EMPTY);
+                   this.grille[l][c] = EMPTY;
+                }
+            }
+            }
+            return false;
         }
       }
     }
-	return true;
+    return true;
   }
 }
