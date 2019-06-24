@@ -152,11 +152,11 @@ public class GrilleImplTest{
   
   @Test
   public void checkCaractereTest() {
-    assertTrue(checkCaractere('5'));
+    assertTrue(grid.checkCaractere('5'));
   }
   
   @Test
   public void checkCaractereTest1() {
-    assertFalse(checkCaractere('-'));
+    assertFalse(grid.checkCaractere('-'));
   }
 }
